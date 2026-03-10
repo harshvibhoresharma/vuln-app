@@ -1,0 +1,120 @@
+<?xml version="1.0"?>
+<analysis xmlns="https://jeremylong.github.io/DependencyCheck/dependency-check.4.1.xsd">
+    <scanInfo>
+        <engineVersion>12.2.0</engineVersion>
+        <dataSource>
+            <name>NVD API Last Checked</name>
+            <timestamp>2026-02-27T15:09:17+0530</timestamp>
+        </dataSource>
+        <dataSource>
+            <name>NVD API Last Modified</name>
+            <timestamp>2026-02-27T09:16:17Z</timestamp>
+        </dataSource>
+    </scanInfo>
+    <projectInfo>
+        <name>Java-Vuln-Scan #11</name>
+        <reportDate>2026-02-27T09:39:35.347221900Z</reportDate>
+        <credits>This product uses the NVD API but is not endorsed or certified by the NVD. This report contains data retrieved from the National Vulnerability Database: https://nvd.nist.gov, Github Advisory Database (via NPM Audit API): https://github.com/advisories/, and the RetireJS community.</credits>
+    </projectInfo>
+    <dependencies>
+        <dependency isVirtual="false">
+            <fileName>vuln-app-1.0-SNAPSHOT.jar</fileName>
+            <filePath>C:\Users\harsh\devops-projects\vuln-app\target\vuln-app-1.0-SNAPSHOT.jar</filePath>
+            <md5>c4318a720c30e26c784e0dae4b91be5a</md5>
+            <sha1>41428f6bef0b4dcba3f7012b79f8bceac1076c32</sha1>
+            <sha256>101806462b7d8ae12d84e2c47d8130549046294d836e693dd98410299ab91715</sha256>
+            <evidenceCollected>
+                <evidence type="vendor" confidence="HIGH">
+                    <source>file</source>
+                    <name>name</name>
+                    <value>vuln-app</value>
+                </evidence>
+                <evidence type="vendor" confidence="HIGHEST">
+                    <source>jar</source>
+                    <name>package name</name>
+                    <value>app</value>
+                </evidence>
+                <evidence type="vendor" confidence="HIGHEST">
+                    <source>jar</source>
+                    <name>package name</name>
+                    <value>demo</value>
+                </evidence>
+                <evidence type="vendor" confidence="LOW">
+                    <source>Manifest</source>
+                    <name>build-jdk-spec</name>
+                    <value>21</value>
+                </evidence>
+                <evidence type="vendor" confidence="LOW">
+                    <source>pom</source>
+                    <name>artifactid</name>
+                    <value>vuln-app</value>
+                </evidence>
+                <evidence type="vendor" confidence="HIGHEST">
+                    <source>pom</source>
+                    <name>groupid</name>
+                    <value>com.demo</value>
+                </evidence>
+                <evidence type="vendor" confidence="HIGH">
+                    <source>pom</source>
+                    <name>name</name>
+                    <value>vuln-app</value>
+                </evidence>
+                <evidence type="vendor" confidence="HIGHEST">
+                    <source>pom</source>
+                    <name>url</name>
+                    <value>http://maven.apache.org</value>
+                </evidence>
+                <evidence type="product" confidence="HIGH">
+                    <source>file</source>
+                    <name>name</name>
+                    <value>vuln-app</value>
+                </evidence>
+                <evidence type="product" confidence="HIGHEST">
+                    <source>jar</source>
+                    <name>package name</name>
+                    <value>app</value>
+                </evidence>
+                <evidence type="product" confidence="HIGHEST">
+                    <source>jar</source>
+                    <name>package name</name>
+                    <value>demo</value>
+                </evidence>
+                <evidence type="product" confidence="LOW">
+                    <source>Manifest</source>
+                    <name>build-jdk-spec</name>
+                    <value>21</value>
+                </evidence>
+                <evidence type="product" confidence="HIGHEST">
+                    <source>pom</source>
+                    <name>artifactid</name>
+                    <value>vuln-app</value>
+                </evidence>
+                <evidence type="product" confidence="HIGHEST">
+                    <source>pom</source>
+                    <name>groupid</name>
+                    <value>com.demo</value>
+                </evidence>
+                <evidence type="product" confidence="HIGH">
+                    <source>pom</source>
+                    <name>name</name>
+                    <value>vuln-app</value>
+                </evidence>
+                <evidence type="product" confidence="MEDIUM">
+                    <source>pom</source>
+                    <name>url</name>
+                    <value>http://maven.apache.org</value>
+                </evidence>
+                <evidence type="version" confidence="HIGHEST">
+                    <source>pom</source>
+                    <name>version</name>
+                    <value>1.0-SNAPSHOT</value>
+                </evidence>
+            </evidenceCollected>
+            <identifiers>
+                <package confidence="HIGH">
+                    <id>pkg:maven/com.demo/vuln-app@1.0-SNAPSHOT</id>
+                </package>
+            </identifiers>
+        </dependency>
+    </dependencies>
+</analysis>
