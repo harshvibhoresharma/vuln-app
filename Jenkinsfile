@@ -1,4 +1,3 @@
-
 pipeline {
     agent any
 
@@ -6,33 +5,25 @@ pipeline {
 
         stage('Build') {
             steps {
-                dir('C:/Users/harsh/devops-projects/vuln-app') {
-                    bat 'mvn clean compile'
-                }
+                bat 'mvn clean compile'
             }
         }
 
         stage('Test') {
             steps {
-                dir('C:/Users/harsh/devops-projects/vuln-app') {
-                    bat 'mvn test'
-                }
+                bat 'mvn test'
             }
         }
 
         stage('Dependency Vulnerability Scan') {
             steps {
-                dir('C:/Users/harsh/devops-projects/vuln-app') {
-                    bat '"C:\\Program Files\\trivy.exe" fs . --exit-code 1 --severity HIGH,CRITICAL'
-                }
+                bat '"C:\\Program Files\\trivy.exe" fs . --exit-code 1 --severity HIGH,CRITICAL'
             }
         }
 
         stage('Package') {
             steps {
-                dir('C:/Users/harsh/devops-projects/vuln-app') {
-                    bat 'mvn package'
-                }
+                bat 'mvn package'
             }
         }
 
@@ -52,4 +43,3 @@ pipeline {
         }
     }
 }
-
