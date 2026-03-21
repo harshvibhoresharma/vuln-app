@@ -27,6 +27,7 @@
             <scope>test</scope>
         </dependency>
 
+        <!-- intentionally vulnerable -->
         <dependency>
             <groupId>log4j</groupId>
             <artifactId>log4j</artifactId>
@@ -36,6 +37,7 @@
 
     <build>
         <plugins>
+
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -48,18 +50,38 @@
                 <version>3.6.1</version>
             </plugin>
 
+            <!-- OWASP Dependency Check -->
             <plugin>
                 <groupId>org.owasp</groupId>
                 <artifactId>dependency-check-maven</artifactId>
                 <version>9.0.9</version>
+
                 <configuration>
-                    <format>HTML</format>
+                    <!-- KEY FROM ENV -->
+                    <nvdApiKey>${env.NVD_API_KEY}</nvdApiKey>
+
                     <formats>
                         <format>HTML</format>
                         <format>XML</format>
                     </formats>
+
+                    <!-- avoid random failures -->
+                    <failOnError>false</failOnError>
+
+                    <!-- fail only high severity -->
+                    <failBuildOnCVSS>7</failBuildOnCVSS>
                 </configuration>
+
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>check</goal>
+                        </goals>
+                    </execution>
+                </executions>
+
             </plugin>
+
         </plugins>
     </build>
 
