@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.demo.AppTest" time="0.055" tests="1" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.demo.AppTest" time="0.065" tests="1" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="21"/>
     <property name="sun.cpu.isalist" value="amd64"/>
     <property name="sun.jnu.encoding" value="Cp1252"/>
-    <property name="java.class.path" value="C:\Users\harsh\devops-projects\vuln-app\target\test-classes;C:\Users\harsh\devops-projects\vuln-app\target\classes;C:\Windows\system32\config\systemprofile\.m2\repository\junit\junit\4.13.2\junit-4.13.2.jar;C:\Windows\system32\config\systemprofile\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;C:\Windows\system32\config\systemprofile\.m2\repository\org\apache\logging\log4j\log4j-api\2.25.3\log4j-api-2.25.3.jar;C:\Windows\system32\config\systemprofile\.m2\repository\org\apache\logging\log4j\log4j-core\2.25.3\log4j-core-2.25.3.jar;"/>
+    <property name="java.class.path" value="C:\Users\harsh\devops-projects\vuln-app\target\test-classes;C:\Users\harsh\devops-projects\vuln-app\target\classes;C:\Windows\system32\config\systemprofile\.m2\repository\junit\junit\4.13.2\junit-4.13.2.jar;C:\Windows\system32\config\systemprofile\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;C:\Windows\system32\config\systemprofile\.m2\repository\log4j\log4j\1.2.17\log4j-1.2.17.jar;"/>
     <property name="java.vm.vendor" value="Oracle Corporation"/>
     <property name="sun.arch.data.model" value="64"/>
     <property name="user.variant" value=""/>
@@ -15,9 +15,9 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="IN"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-21.0.10\bin"/>
-    <property name="sun.java.command" value="C:\Windows\Temp\surefire14343774758544435286\surefirebooter-20260311125627455_3.jar C:\Windows\Temp\surefire14343774758544435286 2026-03-11T12-56-27_286-jvmRun1 surefire-20260311125627455_1tmp surefire_0-20260311125627455_2tmp"/>
+    <property name="sun.java.command" value="C:\Windows\Temp\surefire17529659535662478161\surefirebooter-20260310113449980_3.jar C:\Windows\Temp\surefire17529659535662478161 2026-03-10T11-34-49_763-jvmRun1 surefire-20260310113449980_1tmp surefire_0-20260310113449980_2tmp"/>
     <property name="jdk.debug" value="release"/>
-    <property name="surefire.test.class.path" value="C:\Users\harsh\devops-projects\vuln-app\target\test-classes;C:\Users\harsh\devops-projects\vuln-app\target\classes;C:\Windows\system32\config\systemprofile\.m2\repository\junit\junit\4.13.2\junit-4.13.2.jar;C:\Windows\system32\config\systemprofile\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;C:\Windows\system32\config\systemprofile\.m2\repository\org\apache\logging\log4j\log4j-api\2.25.3\log4j-api-2.25.3.jar;C:\Windows\system32\config\systemprofile\.m2\repository\org\apache\logging\log4j\log4j-core\2.25.3\log4j-core-2.25.3.jar;"/>
+    <property name="surefire.test.class.path" value="C:\Users\harsh\devops-projects\vuln-app\target\test-classes;C:\Users\harsh\devops-projects\vuln-app\target\classes;C:\Windows\system32\config\systemprofile\.m2\repository\junit\junit\4.13.2\junit-4.13.2.jar;C:\Windows\system32\config\systemprofile\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;C:\Windows\system32\config\systemprofile\.m2\repository\log4j\log4j\1.2.17\log4j-1.2.17.jar;"/>
     <property name="sun.cpu.endian" value="little"/>
     <property name="user.home" value="C:\Windows\system32\config\systemprofile"/>
     <property name="user.language" value="en"/>
@@ -30,7 +30,7 @@
     <property name="line.separator" value="&#10;"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
-    <property name="surefire.real.class.path" value="C:\Windows\Temp\surefire14343774758544435286\surefirebooter-20260311125627455_3.jar"/>
+    <property name="surefire.real.class.path" value="C:\Windows\Temp\surefire17529659535662478161\surefirebooter-20260310113449980_3.jar"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="21.0.10+8-LTS-217"/>
@@ -58,5 +58,5 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="65.0"/>
   </properties>
-  <testcase name="testApp" classname="com.demo.AppTest" time="0.005"/>
+  <testcase name="testApp" classname="com.demo.AppTest" time="0.002"/>
 </testsuite>

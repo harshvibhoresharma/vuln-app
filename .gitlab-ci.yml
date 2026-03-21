@@ -1,0 +1,46 @@
+stages:
+  - build
+  - test
+  - security
+  - report
+
+variables:
+  MAVEN_OPTS: "-Dmaven.repo.local=.m2/repository"
+  MAVEN_CLI_OPTS: "--batch-mode --errors --fail-at-end"
+
+cache:
+  paths:
+    - .m2/repository
+
+build:
+  stage: build
+  image: maven:3.9.9-eclipse-temurin-17
+  script:
+    - mvn $MAVEN_CLI_OPTS clean compile
+
+unit_test:
+  stage: test
+  image: maven:3.9.9-eclipse-temurin-17
+  script:
+    - mvn $MAVEN_CLI_OPTS test
+
+security_scan:
+  stage: security
+  image: maven:3.9.9-eclipse-temurin-17
+  script:
+    - mvn $MAVEN_CLI_OPTS org.owasp:dependency-check-maven:check
+  artifacts:
+    when: always
+    paths:
+      - target/dependency-check-report.html
+      - target/dependency-check-report.xml
+
+security_summary:
+  stage: report
+  image: maven:3.9.9-eclipse-temurin-17
+  script:
+    - mvn $MAVEN_CLI_OPTS -DskipTests exec:java -Dexec.mainClass=com.demo.SecurityReportGenerator
+  artifacts:
+    when: always
+    paths:
+      - target/security-summary.md

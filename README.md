@@ -1,183 +1,82 @@
-# 🔐 Vulnerable App Dependency Check (Java + Maven + Jenkins)
+# 🔐 Vulnerable App Dependency Check (Java + Maven + Multi CI/CD)
 
-This project demonstrates how to identify and manage vulnerable dependencies in a Java application using **OWASP Dependency-Check** integrated with **Maven** and **Jenkins CI/CD**.
+This project demonstrates how to identify and manage vulnerable dependencies in a Java application using **OWASP Dependency-Check** with report and chart generation.
 
----
+## 📌 What was added
 
-## 📌 Overview
-
-Modern applications rely heavily on third-party libraries, which may contain known vulnerabilities. This project scans dependencies defined in `pom.xml` and generates a vulnerability report to help developers fix security issues early.
-
----
+- ✅ **Automated report generation** (`target/security-summary.md`)
+- ✅ **Chart generation** (Mermaid pie chart in the markdown report)
+- ✅ **Multiple CI/CD integrations**:
+  - Jenkins (`Jenkinsfile`)
+  - GitHub Actions (`.github/workflows/ci.yml`)
+  - GitLab CI (`.gitlab-ci.yml`)
+- ✅ **Database usage clarification** (see below)
 
 ## 🧰 Tech Stack
 
-* ☕ Java
-* 📦 Maven
-* 🔍 OWASP Dependency-Check
-* ⚙️ Jenkins (CI/CD)
+- Java 17
+- Maven
+- OWASP Dependency-Check
+- Jenkins + GitHub Actions + GitLab CI
 
----
+## 🗄️ Database Used
+
+This application itself does **not use an application database** (no MySQL/PostgreSQL/MongoDB integration in runtime code).
+
+For security scanning, OWASP Dependency-Check maintains a **local vulnerability data cache** (NVD and advisory data) during scans.
 
 ## 📁 Project Structure
 
-```
+```text
 vuln-app/
-│── src/
-│   ├── main/java/com/demo/App.java
-│   └── test/java/com/demo/AppTest.java
-│
-│── target/                         # Build output
-│── pom.xml                         # Maven dependencies
-│── dependency-check-report.xml     # Vulnerability report
-│── Jenkinsfile                     # CI/CD pipeline
-│── .idea/                          # IDE config
+├── src/main/java/com/demo/App.java
+├── src/main/java/com/demo/SecurityReportGenerator.java
+├── src/test/java/com/demo/AppTest.java
+├── pom.xml
+├── Jenkinsfile
+├── .github/workflows/ci.yml
+├── .gitlab-ci.yml
+└── target/ (build + generated reports)
 ```
 
----
+## 🚀 Run Locally
 
-## 🚀 Getting Started
-
-### 1️⃣ Clone the Repository
+### 1) Build + test
 
 ```bash
-git clone https://github.com/your-username/vuln-app.git
-cd vuln-app
+mvn clean verify
 ```
 
----
-
-### 2️⃣ Build the Project
-
-```bash
-mvn clean install
-```
-
----
-
-### 3️⃣ Run Dependency Check
+### 2) Run dependency security scan
 
 ```bash
 mvn org.owasp:dependency-check-maven:check
 ```
 
-This will:
-
-* Scan all dependencies in `pom.xml`
-* Compare them against known vulnerability databases (NVD)
-* Generate a report in the `target/` directory
-
----
-
-## 📊 Vulnerability Report
-
-After scanning, check:
-
-```
-target/dependency-check-report.html
-```
-
-or
-
-```
-dependency-check-report.xml
-```
-
-### Example Finding
-
-```
-Dependency: commons-collections:3.2.1
-Severity: HIGH
-CVE: CVE-2015-7501
-Fix: Upgrade to a secure version
-```
-
----
-
-## ⚙️ Jenkins Integration
-
-This project includes a `Jenkinsfile` to automate scanning.
-
-### Pipeline Stages:
-
-1. Checkout Code
-2. Build with Maven
-3. Run Dependency Check
-4. Archive Report
-
-### Sample Jenkins Step
-
-```groovy
-stage('Dependency Check') {
-    steps {
-        sh 'mvn org.owasp:dependency-check-maven:check'
-    }
-}
-```
-
----
-
-## 🔒 Why This Matters
-
-* Prevents shipping vulnerable code
-* Helps comply with security standards
-* Improves overall software quality
-
----
-
-## 🛠️ Customization
-
-You can configure Dependency-Check in `pom.xml`:
-
-```xml
-<configuration>
-    <failBuildOnCVSS>7</failBuildOnCVSS>
-</configuration>
-```
-
-This fails the build if vulnerabilities exceed a severity threshold.
-
----
-
-## 🧪 Running Tests
+### 3) Generate summary report + chart
 
 ```bash
-mvn test
+mvn -DskipTests exec:java -Dexec.mainClass=com.demo.SecurityReportGenerator
 ```
 
----
+## 📊 Generated Outputs
 
-## 📌 Future Improvements
+After running scan + report generation:
 
-* [ ] Add Docker support
-* [ ] Integrate with GitHub Actions
-* [ ] Add Slack/Email alerts
-* [ ] Centralized vulnerability dashboard
+- `target/dependency-check-report.html`
+- `target/dependency-check-report.xml`
+- `target/security-summary.md` ← contains table + Mermaid pie chart
 
----
+## ⚙️ CI/CD Pipelines
 
-## 🤝 Contributing
+### Jenkins
 
-Feel free to fork the project and submit pull requests.
+`Jenkinsfile` runs: build → test → dependency-check → summary generation → package, then archives reports.
 
----
+### GitHub Actions
 
-## 📜 License
+`.github/workflows/ci.yml` runs on push/PR and uploads security report artifacts.
 
-This project is licensed under the MIT License.
+### GitLab CI
 
----
-
-## 👨‍💻 Author
-
-**Harsh Vibhore Sharma**
-**23FE10SE00047**
-
----
-
-## ⭐ Acknowledgements
-
-* OWASP Dependency-Check
-* National Vulnerability Database (NVD)
-
----
+`.gitlab-ci.yml` defines `build`, `test`, `security_scan`, and `security_summary` stages with artifacts.
