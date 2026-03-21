@@ -21,7 +21,6 @@
 
     <dependencies>
 
-        <!-- Test dependency -->
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
@@ -29,7 +28,6 @@
             <scope>test</scope>
         </dependency>
 
-        <!-- Intentionally vulnerable (for OWASP scan demo) -->
         <dependency>
             <groupId>log4j</groupId>
             <artifactId>log4j</artifactId>
@@ -40,6 +38,7 @@
 
     <build>
         <plugins>
+
 
             <!-- Compiler -->
             <plugin>
@@ -62,19 +61,11 @@
                 <version>9.0.9</version>
 
                 <configuration>
-                    <!-- API key from environment -->
                     <nvdApiKey>${env.NVD_API_KEY}</nvdApiKey>
 
-                    <!-- Report formats -->
-                    <formats>
-                        <format>HTML</format>
-                        <format>XML</format>
-                    </formats>
-
-                    <!-- Avoid build breaking due to API/network -->
+                    <format>ALL</format>
                     <failOnError>false</failOnError>
 
-                    <!-- Fail only for high severity -->
                     <failBuildOnCVSS>7</failBuildOnCVSS>
                 </configuration>
 
